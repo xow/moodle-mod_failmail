@@ -30,11 +30,13 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['modulename'] = 'Failmail';
 $string['modulenameplural'] = 'Failmailers';
-$string['modulename_help'] = 'Use the failmail module to force an error during the execution of a scheduled task.';
+$string['modulename_help'] = 'Use the failmail module to send email during the execution of a scheduled task.';
 $string['failmailfieldset'] = 'Custom example fieldset';
 $string['failmailname'] = 'failmail name';
 $string['failmailname_help'] = 'This is the content of the help tooltip associated with the failmailname field. Markdown syntax is supported.';
 $string['failmail'] = 'failmail';
 $string['pluginadministration'] = 'failmail administration';
 $string['pluginname'] = 'failmail';
-$string['crontask'] = 'Forces an error';
+$string['crontask'] = 'Sends email';
+$string['testsubject'] = 'Test mail group {$a->group} #{$a->number}';
+$string['testbody'] = 'Test mail message';

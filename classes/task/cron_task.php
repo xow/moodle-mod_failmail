@@ -40,9 +40,25 @@ class cron_task extends \core\task\scheduled_task {
      * Run forum cron.
      */
     public function execute() {
-        global $CFG;
-        #email
-        #die;
+        global $CFG, $USER;
+
+        $group = rand(0, 1000);
+
+        for ($i=0; $i < 30; $i++) {
+            $eventdata = new \stdClass();
+            $eventdata->component           = 'mod_failmail';
+            $eventdata->name                = 'tests';
+            $eventdata->userfrom            = $USER;
+            $eventdata->userto              = $USER;
+            $eventdata->subject             = get_string('testsubject', 'mod_failmail', array('group' => $group, 'number' => ($i+1)));
+            $eventdata->fullmessage         = get_string('testbody', 'mod_failmail');
+            $eventdata->fullmessageformat   = FORMAT_PLAIN;
+            $eventdata->fullmessagehtml     = get_string('testbody', 'mod_failmail');
+            $eventdata->smallmessage        = get_string('testbody', 'mod_failmail');
+            $eventdata->notification        = 1;
+
+            $mailresult = message_send($eventdata);
+        }
     }
 
 }
