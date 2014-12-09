@@ -14,22 +14,35 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
- * Defines the version of failmail
+ * A scheduled task for forum cron.
  *
- * This code fragment is called by moodle_needs_upgrading() and
- * /admin/index.php
+ * @todo MDL-44734 This job will be split up properly.
  *
- * @package    mod_failmail
- * @copyright  2011 Your Name
+ * @package    mod_forum
+ * @copyright  2014 Dan Poltawski <dan@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+namespace mod_failmail\task;
 
-defined('MOODLE_INTERNAL') || die();
+class cron_task extends \core\task\scheduled_task {
 
-$module->version   = 2014120900;       // The current module version (Date: YYYYMMDDXX).
-                                     // If version == 0 then module will not be installed.
-$module->requires  = 2014051203;     // Requires this Moodle version.
-$module->cron      = 0;              // Period for cron to check this module (secs).
-$module->component = 'mod_failmail'; // To check on upgrade, that module sits in correct place.
+    /**
+     * Get a descriptive name for this task (shown to admins).
+     *
+     * @return string
+     */
+    public function get_name() {
+        return get_string('crontask', 'mod_failmail');
+    }
+
+    /**
+     * Run forum cron.
+     */
+    public function execute() {
+        global $CFG;
+        #email
+        #die;
+    }
+
+}

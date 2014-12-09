@@ -14,22 +14,25 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
- * Defines the version of failmail
+ * Definition of Forum scheduled tasks.
  *
- * This code fragment is called by moodle_needs_upgrading() and
- * /admin/index.php
- *
- * @package    mod_failmail
- * @copyright  2011 Your Name
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   mod_forum
+ * @category  task
+ * @copyright 2014 Dan Poltawski <dan@moodle.com>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$module->version   = 2014120900;       // The current module version (Date: YYYYMMDDXX).
-                                     // If version == 0 then module will not be installed.
-$module->requires  = 2014051203;     // Requires this Moodle version.
-$module->cron      = 0;              // Period for cron to check this module (secs).
-$module->component = 'mod_failmail'; // To check on upgrade, that module sits in correct place.
+$tasks = array(
+    array(
+        'classname' => 'mod_failmail\task\cron_task',
+        'blocking' => 0,
+        'minute' => '*',
+        'hour' => '*',
+        'day' => '*',
+        'month' => '*',
+        'dayofweek' => '*'
+    )
+);

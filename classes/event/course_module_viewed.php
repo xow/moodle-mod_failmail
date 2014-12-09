@@ -17,17 +17,17 @@
 /**
  * Defines the view event.
  *
- * @package    mod_newmodule
+ * @package    mod_failmail
  * @copyright  2014 Daniel Neis Araujo
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_newmodule\event;
+namespace mod_failmail\event;
 defined('MOODLE_INTERNAL') || die();
 
 class course_module_viewed extends \core\event\course_module_viewed {
     protected function init() {
-        $this->data['objecttable'] = 'newmodule';
+        $this->data['objecttable'] = 'failmail';
         parent::init();
     }
     // You might need to override get_url() and get_legacy_log_data() if view mode needs to be stored as well.
